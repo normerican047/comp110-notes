@@ -12,22 +12,29 @@ def create_edited_string(text_with_edit_marks):
     final_str = ""
     caps_lock_mode = False
     lower_case_mode = False
-
+    delete_mode = False
 
     for ch in text_with_edit_marks:
         if ch == "!":
-            continue
+            delete_mode = True
+            caps_lock_mode = False
+            lower_case_mode = False
         elif ch == "^":
             caps_lock_mode = True 
-            lower_case_mode = False 
+            lower_case_mode = False
+            delete_mode = False 
         elif ch == "_":
             lower_case_mode = True
             caps_lock_mode = False
+            delete_mode = False
         else:
             if caps_lock_mode == True:
                 final_str = final_str + ch.upper()
             elif lower_case_mode == True:
                 final_str = final_str + ch.lower()
+            elif delete_mode == True:
+                final_str = final_str
+                delete_mode = False
             else:
                 final_str = final_str + ch
 
