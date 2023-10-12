@@ -5,14 +5,27 @@ Exercises from lab 06, dealing with string accumualators.
 """
 
 
+
 def create_edited_string(text_with_edit_marks):
     """ Function that returns a sting with editing applied. """
 
     final_str = ""
+    caps_lock_mode = False
 
     for ch in text_with_edit_marks:
-        final_str = final_str + ch
+        if ch == "!":
+            continue
+        elif ch == "^":
+            caps_lock_mode = True  
+        elif ch == "_":
+            continue
+        else:
+            if caps_lock_mode == True:
+                final_str = final_str + ch.upper()
+            else:
+                final_str = final_str + ch
 
+        
     return final_str
 
 
