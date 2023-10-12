@@ -33,7 +33,6 @@ def create_edited_string(text_with_edit_marks):
             elif lower_case_mode == True:
                 final_str = final_str + ch.lower()
             elif delete_mode == True:
-                final_str = final_str
                 delete_mode = False
             else:
                 final_str = final_str + ch
