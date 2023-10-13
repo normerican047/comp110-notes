@@ -28,12 +28,12 @@ def create_edited_string(text_with_edit_marks):
             caps_lock_mode = False
             delete_mode = False
         else:
-            if caps_lock_mode == True:
+            if delete_mode == True:
+                delete_mode = False
+            elif caps_lock_mode == True:
                 final_str = final_str + ch.upper()
             elif lower_case_mode == True:
                 final_str = final_str + ch.lower()
-            elif delete_mode == True:
-                delete_mode = False
             else:
                 final_str = final_str + ch
 
