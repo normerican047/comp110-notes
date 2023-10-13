@@ -8,17 +8,15 @@ Exercises from lab 06, dealing with string accumualators.
 
 def create_edited_string(text_with_edit_marks):
     """ Function that returns a sting with editing applied. """
-
+# sets the inital values for the variables
     final_str = ""
     caps_lock_mode = False
     lower_case_mode = False
     delete_mode = False
-
+# loops through the string and checks for the edit marks and the conditions for each edit mark
     for ch in text_with_edit_marks:
         if ch == "!":
             delete_mode = True
-            caps_lock_mode = False
-            lower_case_mode = False
         elif ch == "^":
             caps_lock_mode = True 
             lower_case_mode = False
@@ -28,7 +26,7 @@ def create_edited_string(text_with_edit_marks):
             caps_lock_mode = False
             delete_mode = False
         else:
-            if delete_mode == True:
+            if delete_mode:
                 delete_mode = False
             elif caps_lock_mode == True:
                 final_str = final_str + ch.upper()
